@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Boggadi Sudheer Kumar Reddy | Decision Sciences | Indian Institute of Management, Bangalore</title>
+    <meta name="description" content="Personal academic website of Boggadi Sudheer Kumar Reddy.">
+    <meta name="keywords" content="Boggadi Sudheer Kumar Reddy">
+    <meta name="author" content="Boggadi Sudheer Kumar Reddy">
+
+    <style>
+        /* --- Design Tokens & Resets --- */
+        :root {
+            --primary: #1e3a8a;       /* Deep Academic Blue */
+            --secondary: #0f766e;     /* Teal accent */
+            --text-dark: #1f2937;     /* Charcoal body text */
+            --text-light: #4b5563;    /* Muted gray text */
+            --bg-light: #f8fafc;      /* Soft gray background */
+            --white: #ffffff;
+            --font-stack: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        /* --- Layout Containers --- */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 5rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        /* --- Navigation Bar --- */
+        header {
+            background-color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* --- Hero Section --- */
+        .hero-container {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            padding: 4rem 0;
+        }
+
+        .hero-img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--white);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        /* --- Publications --- */
+        .pub-list {
+            list-style: none;
+        }
+
+        .pub-item {
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 3px solid #cbd5e1;
+        }
+
+        .pub-title {
+            font-weight: 600;
+            display: block;
+        }
+
+        .pub-authors {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        .me {
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        .pub-meta {
+            font-size: 0.9rem;
+            font-style: italic;
+            color: var(--secondary);
+        }
+
+        .pub-links {
+            margin-top: 0.25rem;
+            font-size: 0.85rem;
+        }
+
+        /* --- Teaching & Research Cards --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            border: 1px solid #e2e8f0;
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 0.9rem;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+            .nav-links {
+                display: none; /* Simplifies menu for mobile presentation */
+            }
+            .section-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .section-title {
+                text-align: center;
+            }
+            .pub-item {
+                border-left: none;
+                padding-left: 0;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav">
+            <div class="nav-logo">Boggadi Sudheer Kumar Reddy</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#teaching">Teaching</a></li>
+                <li><a href="Sudheer_CV.pdf" target="_blank">CV (PDF)</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section id="about" class="hero-container">
+            <img src="Sudheer.jpg" alt="Sudheer picture" class="hero-img">
+            <div class="hero-text">
+                <h1>Boggadi Sudheer Kumar Reddy</h1>
+                <p class="subtitle">Doctoral Student, Decision Sciences<br>Indian Institute of Management, Bangalore</p>
+                <p>I am currently doing PhD at IIM Bangalore and my current research focus on developing exact algorithms to solve Integer Programming problems. Before joining IIMB, I earned my Bachelor's in Mining Engineering from IIT, Kharagpur. Outside of research, I enjoy playing badminton, and cricket.</p>
+                
+                <div class="social-links">
+                    <a href="mailto:boggadir21@iimb.ac.in?cc=sudheer.boggadi@gmail.com">Email</a> • 
+                    <a href="https://scholar.google.com/citations?user=dvWiZiQAAAAJ&hl=en" target="_blank">Google Scholar</a> • 
+                    <a href="https://github.com/Sudheerb1" target="_blank">GitHub</a> • 
+                    <a href="https://www.linkedin.com/in/boggadi-sudheer-kumar-reddy-91114b139/" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="research">
+            <h2 class="section-title">Research Interests</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Integer Programming</h3>
+                    <p>Developing exact algorithms to solve high-dimensional discrete decision making problems.</p>
+                </div>
+                <div class="card">
+                    <h3>Cone Programming</h3>
+                    <p>Investigating the theoretical foundations and practical applications of cone programming to provide tight bounds for hard discrete problems.</p>
+                </div>
+                <div class="card">
+                    <h3>Scheduling Algorithms</h3>
+                    <p>Designing scalable, deterministic, and stochastic scheduling algorithms for complex industrial, computational, and logistical systems.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="publications">
+            <h2 class="section-title">Selected Publications</h2>
+            <ul class="pub-list">
+                
+                <li class="pub-item">
+                    <span class="pub-title">A Hierarchy of SOCP-based relaxations for 0-1 Quadratic Programs</span>
+                    <span class="pub-authors"><span class="me">Reddy, B.S.K</span>,& Desai, J.</span>
+                    <div class="pub-meta">IISE Annual Conference. Proceedings</div>
+                    <div class="pub-links">
+                        <a href="https://www.proquest.com/openview/a613d7b1513d3a93ab9ebdfe8b3e5f46/1?pq-origsite=gscholar&cbl=51908" target="_blank">[Link]</a> <a href="https://scholar.googleusercontent.com/scholar.bib?q=info:upQgNYzDyEwJ:scholar.google.com/&output=citation&scisdr=CtSM2Vb7EJuYuvG8PkI:ANDmEU4AAAAAaju6JkI1t5q1UCUBDpp4RJ2Smhk&scisig=ANDmEU4AAAAAaju6JjXmY7tZUuu11MPdyu20igM&scisf=4&ct=citation&cd=-1&hl=en" target="_blank">[BibTeX]</a>
+                    </div>
+                </li>
+
+            </ul>
+        </section>
+
+	<section id="conferences">
+    <h2 class = "section-title">Conferences & Talks</h2>
+    <ul class="conference-list">
+	<li>
+            <span class="conf-date"><strong>Jun 2026</strong>
+            <span class="conf-title">|<em>Session Chair</em>: "A Continuous Time Model For Flexible Batch Scheduling With Sequence-Specific Changeovers" - IISE Annual Expo & Conference 2026,</span>
+            <span class="conf-loc">Arlington, Dallas</span>
+        </li>
+
+	<li>
+            <span class="conf-date"><strong>Jan 2026</strong>
+            <span class="conf-title">|<em>Presentor</em>: "A Continuous Time Model For Flexible Batch Scheduling With Sequence-Specific Changeovers" - MDC 2026,</span>
+            <span class="conf-loc">IIT Kharagpur</span>
+        </li>
+
+	<li>
+            <span class="conf-date"><strong>Dec 2025</strong>
+            <span class="conf-title">|<em>Presentor</em>: "A Continuous Time Model For Flexible Batch Scheduling With Sequence-Specific Changeovers" - POMS India Conference,</span>
+            <span class="conf-loc">IIM Sambalpur</span>
+        </li>
+
+	<li>
+            <span class="conf-date"><strong>Jun 2025</strong>
+            <span class="conf-title">|<em>Presentor</em>: "A Hierarchy of SOCP Relaxations for 0-1 Integer Programming Problems" - EURO 2025,</span>
+            <span class="conf-loc">University of Leeds</span>
+        </li>
+
+
+	<li>
+            <span class="conf-date"><strong>May 2025</strong>
+            <span class="conf-title">|<em>Presentor</em>: "A Hierarchy of SOCP Relaxations for 0-1 Integer Programming Problems" - IISE Annual Expo & Conference 2025,</span>
+            <span class="conf-loc">Atlanta, Georgia</span>
+        </li>
+
+        
+    </ul>
+</section>
+
+
+        <section id="teaching">
+            <h2 class="section-title">Teaching</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Essentials of Mathematics</h3>
+                    <p><strong>MBA (Jun 2026)</strong></p>
+                    <p style="margin-top: 0.5rem; color: var(--text-light); font-size: 0.9rem;">Covered foundations of vectors, Matrices, Linear algebra and convexity for the incoming PGPBA students.</p>
+                </div>
+                <div class="card">
+                    <h3>Probability and Statistics</h3>
+                    <p><strong> Pre-Doc (Sep - Dec 2025)</strong></p>
+                    <p style="margin-top: 0.5rem; color: var(--text-light); font-size: 0.9rem;">Introduced the concepts of distributions, sampling and hypothesis testing.</p>
+                </div>
+                <div class="card">
+                    <h3>Introduction to Matlab</h3>
+                    <p><strong>Doctoral (Jun 2024)</strong></p>
+                    <p style="margin-top: 0.5rem; color: var(--text-light); font-size: 0.9rem;">Introduced the fundamentals, focusing on matrix manipulations, visualization, and algorithmic problem solving.</p>
+                </div>
+                <div class="card">
+                    <h3>Quantitative Techniques</h3>
+                    <p><strong>MBA (Jun 2024)</strong></p>
+                    <p style="margin-top: 0.5rem; color: var(--text-light); font-size: 0.9rem;">Introduced the fundamentals on real analysis, differentiation and optimization.</p>
+                </div>
+            </div>
+        </section>
+
+	<section id="teaching assistantship">
+            <h2 class="section-title">Teaching Assistant</h2>
+            <div class="pill-container">
+                <div class="pill-item">
+                    <h3>Decision Sciences 2, MBA (Sep-Dec 2025) </h3>
+		</div>
+                <div class="pill-item">
+                    <h3>Optimization, MBA (Jun-Aug 2025)</h3>
+                </div>
+                <div class="pill-item">
+                    <h3>Decision Sciences 2, MBA (Sep-Dec 2024)</h3>
+                </div>
+                <div class="pill-item">
+                    <h3>Decision Sciences 1, MBA (Jun-Aug 2024)</h3>
+                </div>
+                <div class="pill-item">
+                    <h3>Decision Sciences 2, MBA (Sep-Dec 2023)</h3>
+                </div>
+                <div class="pill-item">
+                    <h3>Decision Sciences 1, MBA (Jun-Aug 2023)</h3>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Boggadi Sudheer Kumar Reddy. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
